@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include aroma *.css
+recursive-include aroma *.csv
+recursive-include aroma *.html
+recursive-include aroma *.ico
+recursive-include aroma *.js
+recursive-include aroma *.json
+recursive-include aroma *.md
+recursive-include aroma *.png
+recursive-include aroma *.py
+recursive-include aroma *.svg
+recursive-include aroma *.txt
+recursive-exclude aroma *.pyc
