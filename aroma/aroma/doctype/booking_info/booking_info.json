@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "autoname": "format:{room}-{party_date}-{from_time}-{to_time}",
+ "creation": "2021-12-29 08:37:00.384413",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "room",
+  "party_date",
+  "from_time",
+  "to_time",
+  "cb_1",
+  "booked_by",
+  "type_of_booking",
+  "booking_expiry_date",
+  "booked_via",
+  "reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "label": "Room",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "From Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "To Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "booked_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Booked By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type_of_booking",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type Of Booking",
+   "options": "\nInitial\nConfirm",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.booking_type == 'Initial'",
+   "fieldname": "booking_expiry_date",
+   "fieldtype": "Date",
+   "label": "Booking Expiry Date",
+   "mandatory_depends_on": "eval:doc.booking_type == 'Initial'"
+  },
+  {
+   "fieldname": "booked_via",
+   "fieldtype": "Link",
+   "label": "Booked Via",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "booked_via",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-12-29 10:33:10.189725",
+ "modified_by": "Administrator",
+ "module": "Aroma",
+ "name": "Booking Info",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "room"
+}
