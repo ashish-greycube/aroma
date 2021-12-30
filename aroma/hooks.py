@@ -97,7 +97,7 @@ doc_events = {
 		"on_submit": "aroma.booking_controller.create_booking"
 	}	
 }
-
+after_migrate = "aroma.booking_controller.after_migrations"
 # Scheduled Tasks
 # ---------------
 
