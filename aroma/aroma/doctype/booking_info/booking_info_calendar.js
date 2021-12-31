@@ -5,14 +5,9 @@ frappe.views.calendar["Booking Info"] = {
 		"end": "end",
 		"id": "name",
 		"title": "room",
-		"status": "type_of_booking",
+		"progress": "type_of_booking",
 		"allDay": "allDay",
-		"color": "color"
+		"color": "calendar_color"
 	},
-	style_map: {
-		"Initial": "success",
-		"Confirm": "info"
-	},	
-	gantt: true,
 	get_events_method: "aroma.aroma.doctype.booking_info.booking_info.get_events"
 };
