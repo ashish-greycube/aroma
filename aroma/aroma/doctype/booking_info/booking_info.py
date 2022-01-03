@@ -3,9 +3,11 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import format_time,formatdate
 
 class BookingInfo(Document):
-	pass
+	def autoname(self):
+		self.name=frappe.scrub(self.room+'-'+formatdate(self.party_date)+'-'+format_time(self.from_time, "HH:mm")+'-'+format_time(self.to_time, "HH:mm"))
 
 
 @frappe.whitelist()

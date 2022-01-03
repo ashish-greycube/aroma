@@ -1,6 +1,5 @@
 {
  "actions": [],
- "autoname": "format:{room}-{party_date}-{from_time}-{to_time}",
  "creation": "2021-12-29 08:37:00.384413",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -93,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-01-03 07:32:28.438538",
+ "modified": "2022-01-03 08:36:32.300725",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Booking Info",
