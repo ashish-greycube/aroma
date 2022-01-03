@@ -1,0 +1,372 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2022-01-03 14:35:36.705247",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "sales_order",
+  "guest_name",
+  "mobile_no",
+  "cb_1",
+  "party_date",
+  "start_time",
+  "end_time",
+  "is_lunch",
+  "is_dinner",
+  "is_coffee_break",
+  "guest_sb",
+  "total_guest",
+  "male",
+  "female",
+  "cb_2",
+  "extra_dinning",
+  "extra_seating",
+  "seating_hall",
+  "menu_sb",
+  "menu",
+  "servies_sb",
+  "female_services",
+  "waitresses",
+  "female_supervisors",
+  "column_break_26",
+  "male_services",
+  "waiters",
+  "male_supervisors",
+  "ex_it_sb",
+  "function_sheet_extra_item",
+  "bq_kitchen_cb",
+  "banqueting",
+  "kitchen",
+  "other_sb",
+  "house_keeping",
+  "engineering",
+  "reception",
+  "cb_3",
+  "security",
+  "beverages",
+  "special_instructions",
+  "supervisor_details_section",
+  "table_44"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "FS.YY.MM.-.#",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "guest_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Guest Name",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "party_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party Date"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_lunch",
+   "fieldtype": "Check",
+   "label": "Is Lunch"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_dinner",
+   "fieldtype": "Check",
+   "label": "Is Dinner"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_coffee_break",
+   "fieldtype": "Check",
+   "label": "Is Coffee Break"
+  },
+  {
+   "fieldname": "guest_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_guest",
+   "fieldtype": "Int",
+   "label": "Total Guest"
+  },
+  {
+   "fieldname": "male",
+   "fieldtype": "Int",
+   "label": "Male"
+  },
+  {
+   "fieldname": "female",
+   "fieldtype": "Int",
+   "label": "Female"
+  },
+  {
+   "fieldname": "cb_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "extra_dinning",
+   "fieldtype": "Int",
+   "label": "Extra Dinning"
+  },
+  {
+   "fieldname": "extra_seating",
+   "fieldtype": "Int",
+   "label": "Extra Seating"
+  },
+  {
+   "fieldname": "seating_hall",
+   "fieldtype": "Link",
+   "label": "Seating Hall",
+   "options": "Item"
+  },
+  {
+   "fieldname": "menu_sb",
+   "fieldtype": "Section Break",
+   "label": "Menu"
+  },
+  {
+   "fieldname": "menu",
+   "fieldtype": "Table",
+   "label": "Menu",
+   "options": "Function Sheet Menu"
+  },
+  {
+   "fieldname": "servies_sb",
+   "fieldtype": "Section Break",
+   "label": "Services"
+  },
+  {
+   "fieldname": "female_services",
+   "fieldtype": "Data",
+   "label": "Female Services (Sababat)"
+  },
+  {
+   "fieldname": "waitresses",
+   "fieldtype": "Data",
+   "label": "Waitresses"
+  },
+  {
+   "fieldname": "female_supervisors",
+   "fieldtype": "Data",
+   "label": "Female Supervisors"
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "male_services",
+   "fieldtype": "Data",
+   "label": "Male Services (Sabab)"
+  },
+  {
+   "fieldname": "waiters",
+   "fieldtype": "Data",
+   "label": "Waiters"
+  },
+  {
+   "fieldname": "male_supervisors",
+   "fieldtype": "Data",
+   "label": "Male Supervisors"
+  },
+  {
+   "fieldname": "ex_it_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "function_sheet_extra_item",
+   "fieldtype": "Table",
+   "label": "Function Sheet Extra Item",
+   "options": "Function Sheet Extra Item"
+  },
+  {
+   "fieldname": "bq_kitchen_cb",
+   "fieldtype": "Section Break",
+   "label": "Others"
+  },
+  {
+   "fieldname": "banqueting",
+   "fieldtype": "Small Text",
+   "label": "Banqueting"
+  },
+  {
+   "fieldname": "kitchen",
+   "fieldtype": "Small Text",
+   "label": "Kitchen"
+  },
+  {
+   "fieldname": "other_sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "house_keeping",
+   "fieldtype": "Small Text",
+   "label": "House Keeping"
+  },
+  {
+   "fieldname": "engineering",
+   "fieldtype": "Small Text",
+   "label": "Engineering"
+  },
+  {
+   "fieldname": "reception",
+   "fieldtype": "Small Text",
+   "label": "Reception"
+  },
+  {
+   "fieldname": "cb_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "security",
+   "fieldtype": "Small Text",
+   "label": "Security"
+  },
+  {
+   "fieldname": "beverages",
+   "fieldtype": "Small Text",
+   "label": "Beverages"
+  },
+  {
+   "fieldname": "special_instructions",
+   "fieldtype": "Small Text",
+   "label": "Special Instructions"
+  },
+  {
+   "fieldname": "supervisor_details_section",
+   "fieldtype": "Section Break",
+   "label": "Supervisor Details"
+  },
+  {
+   "fieldname": "table_44",
+   "fieldtype": "Table",
+   "options": "Function Supervisor Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-01-03 14:36:17.788500",
+ "modified_by": "Administrator",
+ "module": "Aroma",
+ "name": "Function Sheet",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
