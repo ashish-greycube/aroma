@@ -1,6 +1,7 @@
 import frappe
 from frappe import _
 from frappe.utils import get_link_to_form
+from frappe.model.mapper import get_mapped_doc
 
 def create_booking(self,method):
 	room_item_group = frappe.db.get_single_value('Booking Settings', 'room_item_group')
@@ -65,3 +66,27 @@ def update_dashboard_link_for_core_doctype(doctype,link_doctype,link_fieldname,g
 	except Exception:
 		frappe.log_error(frappe.get_traceback())				
 
+@frappe.whitelist()
+def create_function_sheet(source_name, target_doc=None):
+	doc = get_mapped_doc('Sales Order', source_name, {
+		'Sales Order': {
+			'doctype': 'Function Sheet',
+			'field_map': {
+				'customer':'guest_name',
+				'name':'sales_order',
+			'contact_mobile':	"mobile_no",
+			"party_date_cf":	"party_date",
+			"from_time_cf":	"start_time",
+			"to_time_cf":	"end_time",
+			},			
+			'validation': {
+				'docstatus': ['!=', 2]
+			}
+		}
+	}, target_doc)
+	so=frappe.get_doc('Sales Order',source_name)
+	for item in so.items:
+		doc.seating_hall=item.item_code
+		break
+
+	return doc
