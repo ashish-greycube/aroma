@@ -92,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-01-03 08:36:32.300725",
+ "modified": "2022-01-03 12:58:41.037371",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Booking Info",
@@ -149,5 +149,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "room"
+ "title_field": "room",
+ "track_changes": 1
 }
