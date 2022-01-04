@@ -2,6 +2,7 @@ import frappe
 from frappe import _
 from frappe.utils import get_link_to_form
 from frappe.model.mapper import get_mapped_doc
+from frappe.utils import getdate, nowdate
 
 def create_booking(self,method):
 	room_item_group = frappe.db.get_single_value('Booking Settings', 'room_item_group')
@@ -90,3 +91,12 @@ def create_function_sheet(source_name, target_doc=None):
 		break
 
 	return doc
+
+def delete_expired_booking_in_initial_state():
+	frappe.db.delete("Booking Info", {
+			"type_of_booking":['=', 'Initial'],
+			"booking_expiry_date": ["<=", getdate(nowdate())]
+	})	
+	frappe.db.commit()			
+
+	

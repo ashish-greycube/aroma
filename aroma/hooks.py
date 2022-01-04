@@ -101,23 +101,13 @@ after_migrate = "aroma.booking_controller.after_migrations"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"aroma.tasks.all"
-# 	],
-# 	"daily": [
-# 		"aroma.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"aroma.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"aroma.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"aroma.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+	"cron": {
+		"15 00 * * *": [
+			"aroma.booking_controller.delete_expired_booking_in_initial_state",
+		]
+	},	
+}
 
 # Testing
 # -------
