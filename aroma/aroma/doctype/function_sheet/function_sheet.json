@@ -11,6 +11,7 @@
   "sales_order",
   "guest_name",
   "mobile_no",
+  "is_billed",
   "cb_1",
   "party_date",
   "start_time",
@@ -50,13 +51,13 @@
   "beverages",
   "special_instructions",
   "supervisor_details_section",
-  "table_44"
+  "table_44",
+  "amended_from"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Series",
    "options": "FS.YY.MM.-.#",
    "reqd": 1
@@ -285,11 +286,28 @@
    "fieldname": "table_44",
    "fieldtype": "Table",
    "options": "Function Supervisor Detail"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_billed",
+   "fieldtype": "Check",
+   "label": "Is Billed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Function Sheet",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2022-01-03 14:36:17.788500",
+ "modified": "2022-01-27 10:58:14.009307",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Function Sheet",
