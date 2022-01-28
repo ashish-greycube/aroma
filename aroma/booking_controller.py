@@ -4,6 +4,11 @@ from frappe.utils import get_link_to_form
 from frappe.model.mapper import get_mapped_doc
 from frappe.utils import getdate, nowdate
 
+def mark_function_sheet_as_billed(self,method):
+	is_billed=frappe.db.set_value('Function Sheet', self.function_sheet_cf, 'is_billed', 1)
+	msg = _('Function Sheet {} is marked as billed.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf))))
+	frappe.msgprint(msg)
+
 def create_booking(self,method):
 	room_item_group = frappe.db.get_single_value('Booking Settings', 'room_item_group')
 	if room_item_group:

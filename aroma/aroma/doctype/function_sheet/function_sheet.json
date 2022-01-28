@@ -306,8 +306,14 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2022-01-27 10:58:14.009307",
+ "links": [
+  {
+   "group": "Transaction",
+   "link_doctype": "Sales Invoice",
+   "link_fieldname": "function_sheet_cf"
+  }
+ ],
+ "modified": "2022-01-28 08:08:34.555137",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Function Sheet",

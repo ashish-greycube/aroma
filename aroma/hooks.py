@@ -95,7 +95,10 @@ doc_events = {
 	},
 	"Sales Order": {
 		"on_submit": "aroma.booking_controller.create_booking"
-	}	
+	}	,
+	"Sales Invoice": {
+		"on_submit": "aroma.booking_controller.mark_function_sheet_as_billed"
+	}		
 }
 after_migrate = "aroma.booking_controller.after_migrations"
 # Scheduled Tasks
