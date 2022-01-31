@@ -1,6 +1,5 @@
 {
  "actions": [],
- "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2022-01-03 14:35:36.705247",
  "doctype": "DocType",
@@ -11,7 +10,6 @@
   "sales_order",
   "guest_name",
   "mobile_no",
-  "is_billed",
   "cb_1",
   "party_date",
   "start_time",
@@ -288,13 +286,6 @@
    "options": "Function Supervisor Detail"
   },
   {
-   "default": "0",
-   "fieldname": "is_billed",
-   "fieldtype": "Check",
-   "label": "Is Billed",
-   "read_only": 1
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -313,13 +304,14 @@
    "link_fieldname": "function_sheet_cf"
   }
  ],
- "modified": "2022-01-28 08:08:34.555137",
+ "modified": "2022-01-31 12:48:59.450112",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Function Sheet",
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -329,9 +321,11 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -341,9 +335,11 @@
    "report": 1,
    "role": "Sales User",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -353,9 +349,11 @@
    "report": 1,
    "role": "Sales Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -365,6 +363,7 @@
    "report": 1,
    "role": "Sales Master Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -379,6 +378,7 @@
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -388,6 +388,7 @@
    "report": 1,
    "role": "Accounts Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

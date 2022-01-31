@@ -15,7 +15,7 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/aroma/css/aroma.css"
 # app_include_js = "/assets/aroma/js/aroma.js"
-
+# app_include_js = ["/assets/aroma/js/help_link.js"]
 # include js, css files in header of web template
 # web_include_css = "/assets/aroma/css/aroma.css"
 # web_include_js = "/assets/aroma/js/aroma.js"
@@ -38,7 +38,7 @@ doctype_js = {"Sales Order" : "public/js/sales_order.js"}
 
 # Home Pages
 # ----------
-
+# auto_cancel_exempted_doctypes = ["Function Sheet"]
 # application home page (will override Website Settings)
 # home_page = "login"
 
@@ -97,7 +97,8 @@ doc_events = {
 		"on_submit": "aroma.booking_controller.create_booking"
 	}	,
 	"Sales Invoice": {
-		"on_submit": "aroma.booking_controller.mark_function_sheet_as_billed"
+		"on_submit": "aroma.booking_controller.mark_function_sheet_as_billed",
+		"before_cancel": "aroma.booking_controller.remove_function_sheet_si_reference"
 	}		
 }
 after_migrate = "aroma.booking_controller.after_migrations"

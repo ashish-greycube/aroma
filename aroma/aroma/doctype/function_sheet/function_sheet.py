@@ -9,29 +9,36 @@ from frappe.utils import get_link_to_form,flt
 from frappe.utils.data import getdate, nowdate
 
 class FunctionSheet(Document):
-	@frappe.whitelist()
-	def create_sales_invoice(self):
-		# default_sales_invoice_naming_series = frappe.db.get_value('Company', self.company, 'default_sales_invoice_naming_series')
-		# cost_center = frappe.db.get_value('Company', self.company, 'cost_center')
+	def on_submit(self):
+		for item in self.function_sheet_extra_item:
+			if not item.ref_sales_invoice:
+				msg = _('Item #{0} : {1} in "Function Sheet Extra Item" has no sales invoice. Please create sales invoice.'.format(item.idx,item.item_name))
+				frappe.throw(msg)				
+			elif item.is_billed==0:
+				msg = _('Item #{0} : {1} in "Function Sheet Extra Item" is not billed. Please submit {1} to bill it.'.format(item.idx,item.item_name,frappe.bold(get_link_to_form('Sales Invoice',item.ref_sales_invoice))))
+				frappe.throw(msg)				
 
+	@frappe.whitelist()
+	def create_sales_invoice(self,row_name):
 		si = frappe.new_doc('Sales Invoice')
-		# si.naming_series=default_sales_invoice_naming_series
 		si.customer=self.guest_name
 		si.due_date=getdate(nowdate())
-		# si.cost_center=cost_center
 		for item in self.function_sheet_extra_item:
-			row = si.append('items', {})		
-			row.item_code=item.item_code
-			row.item_name=item.item_name
-			row.qty=item.qty
-			row.rate=item.price
+			if item.name==row_name:
+				row = si.append('items', {})		
+				row.item_code=item.item_code
+				row.item_name=item.item_name
+				row.qty=item.qty
+				row.rate=item.price
 
 		si.flags.ignore_permissions = True
-		# si.ignore_pricing_rule = 1
-		# si.update_stock=0
 		si.function_sheet_cf=self.name
 		si.run_method("set_missing_values")
 		si.run_method("calculate_taxes_and_totals")		
 		si.save()		
+		for item in self.function_sheet_extra_item:
+			if item.name==row_name:
+				item.ref_sales_invoice=si.name
+		frappe.db.set_value('Function Sheet Extra Item', row_name, 'ref_sales_invoice', si.name)
 		msg = _('Sales Invoice {} is created'.format(frappe.bold(get_link_to_form('Sales Invoice',si.name))))
 		frappe.msgprint(msg)
