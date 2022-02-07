@@ -5,27 +5,28 @@ from frappe.model.mapper import get_mapped_doc
 from frappe.utils import getdate, nowdate
 
 def remove_function_sheet_si_reference(self,method):
-	print('-'*100)
-	function_sheet = frappe.get_doc('Function Sheet', self.function_sheet_cf)
-	if function_sheet.docstatus==1:
-			msg = _('Cannot cancel sales invoice as linked function sheet {0} is not in draft stage.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf))))
-			frappe.msgprint(msg)		
-	else:
-		for item in function_sheet.function_sheet_extra_item:	
-			if item.ref_sales_invoice==self.name:
-				item.ref_sales_invoice=None
-				item.is_billed=0
-				function_sheet.save(ignore_permissions=True)
-				msg = _('Function Sheet {0}, row #{1} : {2} sales invoice reference is removed.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf)),item.idx,item.item_name))
-				frappe.msgprint(msg)				
+	if self.function_sheet_cf:
+		function_sheet = frappe.get_doc('Function Sheet', self.function_sheet_cf)
+		if function_sheet.docstatus==1:
+				msg = _('Cannot cancel sales invoice as linked function sheet {0} is not in draft stage.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf))))
+				frappe.msgprint(msg)		
+		else:
+			for item in function_sheet.function_sheet_extra_item:	
+				if item.ref_sales_invoice==self.name:
+					item.ref_sales_invoice=None
+					item.is_billed=0
+					function_sheet.save(ignore_permissions=True)
+					msg = _('Function Sheet {0}, row #{1} : {2} sales invoice reference is removed.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf)),item.idx,item.item_name))
+					frappe.msgprint(msg)				
 
 def mark_function_sheet_as_billed(self,method):
-	function_sheet = frappe.get_doc('Function Sheet', self.function_sheet_cf)
-	for item in function_sheet.function_sheet_extra_item:
-		if item.ref_sales_invoice==self.name:
-			is_billed=frappe.db.set_value('Function Sheet Extra Item', item.name, 'is_billed', 1)
-			msg = _('Function Sheet {0}, row #{1} : {2} is marked as billed.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf)),item.idx,item.item_name))
-			frappe.msgprint(msg)
+	if self.function_sheet_cf:
+		function_sheet = frappe.get_doc('Function Sheet', self.function_sheet_cf)
+		for item in function_sheet.function_sheet_extra_item:
+			if item.ref_sales_invoice==self.name:
+				is_billed=frappe.db.set_value('Function Sheet Extra Item', item.name, 'is_billed', 1)
+				msg = _('Function Sheet {0}, row #{1} : {2} is marked as billed.'.format(frappe.bold(get_link_to_form('Function Sheet',self.function_sheet_cf)),item.idx,item.item_name))
+				frappe.msgprint(msg)
 
 def create_booking(self,method):
 	room_item_group = frappe.db.get_single_value('Booking Settings', 'room_item_group')
