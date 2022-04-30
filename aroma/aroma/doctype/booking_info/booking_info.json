@@ -14,7 +14,10 @@
   "type_of_booking",
   "booking_expiry_date",
   "booked_via",
-  "reference"
+  "reference",
+  "customer",
+  "main_hall",
+  "dinner_hall"
  ],
  "fields": [
   {
@@ -88,11 +91,30 @@
    "label": "Reference",
    "options": "booked_via",
    "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "main_hall",
+   "fieldtype": "Data",
+   "label": "Main Hall ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dinner_hall",
+   "fieldtype": "Data",
+   "label": "Dinner Hall",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-01-03 12:58:41.037371",
+ "modified": "2022-04-30 07:08:28.553664",
  "modified_by": "Administrator",
  "module": "Aroma",
  "name": "Booking Info",
