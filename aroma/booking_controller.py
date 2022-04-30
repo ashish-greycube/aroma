@@ -67,6 +67,12 @@ and sot.prevdoc_docname =%s """,(item.item_code,item.prevdoc_docname),as_dict=Tr
 					doc.booking_expiry_date=self.valid_till if self.doctype =='Quotation' else  self.delivery_date
 					doc.booked_via=self.doctype
 					doc.reference=self.name
+					if self.doctype=='Quotation' and self.quotation_to=='Customer':
+						doc.customer=self.party_name 
+					if self.doctype =='Sales Order':
+						doc.customer=self.customer
+						doc.main_hall=self.main_hall_cf
+						doc.dinner_hall=self.dinner_hall_cf
 					doc.save(ignore_permissions=True)
 					msg = _('Booking {} is created for {}'.format(get_link_to_form('Booking Info',doc.name),item.item_code))
 					frappe.msgprint(msg, alert=1)			
