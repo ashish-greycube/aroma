@@ -56,7 +56,10 @@ and sot.prevdoc_docname =%s """,(item.item_code,item.prevdoc_docname),as_dict=Tr
 						existing_found=True
 						msg = _('Existing Booking {} is updated for Sales Order {}'.format(get_link_to_form('Booking Info',doc.name),self.name))
 						frappe.msgprint(msg, alert=1)			
-				if existing_found==False:					
+				if existing_found==False:	
+					if not self.party_date_cf:
+						msg = _('Party Date is required for Booking. Please enter it.')
+						frappe.throw(msg)								
 					doc = frappe.new_doc('Booking Info')
 					doc.room = item.item_code
 					doc.party_date=self.party_date_cf
